@@ -1,0 +1,12 @@
+#playersTab {
+    width: 100%;
+}
+
+#playersHeadline {
+    padding-bottom:5px;
+    border-bottom: 1px solid black;
+}
+
+label {
+    padding:10px 10px 10px 0px;
+}

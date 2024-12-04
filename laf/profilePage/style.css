@@ -1,0 +1,100 @@
+#mainProf {
+    display: flex;
+    flex-direction: row;
+    border-radius:5px 5px 0 0;
+    background-color: white;
+    align-items: flex-start;
+}
+
+#profileImg {
+    padding:10px;
+}
+
+#statSection {
+    padding:10px;
+}
+
+article {
+    background:linear-gradient(90deg,#4e30a3, #481a50,#bd5ea0);
+}
+
+#stats {
+    padding: 45px 10px 45px 10px;
+    background:linear-gradient(white, bisque, bisque, bisque, lightpink);
+}
+
+.progressBarBg {
+    width:100%;
+    height:25px;
+    background-color: #333;;
+    border-radius: 5px;
+}
+
+.progressBar {
+    width:20%;
+    height:100%;
+    background:linear-gradient(rgb(28, 119, 255), rgb(63, 200, 246),rgb(28, 119, 255));
+    border-radius:5px;
+}
+
+#lvlTxt {
+    text-align: end;
+    float:right;
+}
+#expTxt {
+    text-align:start;
+} 
+
+#lvl {
+    background-color:lightpink;
+    padding:15px;
+}
+
+#calendarBox {
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+#calendarBtn {
+    background:linear-gradient(rgb(204, 104, 217), purple);
+    color:white;
+    padding:20px;
+    border: none;
+    border-radius: 0 0 10px 10px;
+}
+
+#calendarBtn:hover {
+    background:darkmagenta;
+}
+
+label {
+    padding:10px 10px 10px 0px;
+}
+
+textarea {
+    max-width:100%;
+    min-width: 100%;
+    max-height: 300px;
+}
+
+#submitBtn {
+    margin-top:15px;
+    background-color: #333;
+    padding:10px;
+    color:white;
+    border:solid 2px white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#submitBtn:hover {
+    background-color: slategray;
+}
+p {
+    font-weight: bold;
+}
+
+span {
+    font-weight: normal;
+}
