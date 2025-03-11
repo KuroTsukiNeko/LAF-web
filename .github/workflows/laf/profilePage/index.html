@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>LAF</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../commonStyles.css">
+    </head>
+    <body>
+        <nav>
+            <img id="logoImg">
+            <div id="pageList">
+                <a id="navProfile" class="navItem">My profile</a>
+                <a id="navCalendar" class="navItem">My calendar</a>
+                <a id="navPlayers" class="navItem">Players</a>
+                <a id="navQuests" class="navItem">Quests</a>
+                <a id="navCategories" class="navItem">Categories</a>
+            </div>
+        </nav>
+        <article>
+            <button id="menuBtn">Edytuj</button>
+            <div id="page">
+                <p id="playerNameHeader">Imię Nazwisko <span id="playerName">[brak]</span></p>
+                <div id="mainProf">
+                    <img src="example.png" id="profileImg">
+                    <div id="statSection">
+                        <p>Rasa: <span id="playerSpecies">[brak]</span></p>
+                        <p>Klasa: <span id="playerClass">[brak]</span></p>
+                        <p>Siła: <span id="strStat">0</span></p>
+                        <p>Zręczność: <span id="dexStat">0</span></p>
+                        <p>Kondycja: <span id="conStat">0</span></p>
+                        <p>Inteligencja: <span id="intStat">0</span></p>
+                        <p>Mądrość: <span id="wisStat">0</span></p>
+                        <p>Charyzma: <span id="chaStat">0</span></p>
+                    </div>
+                </div>
+                <underline></underline>
+                <div id="stats">
+                    <p>Mocne strony:</p><span id="playerAdv">[brak]</span>
+                    <p>Słabe strony:</p><span id="playerDis">[brak]</span>
+                </div>
+                <div id="lvl">
+                    <div class="progressBarBg">
+                        <div class="progressBar"></div>
+                    </div>
+                    <h1 id="lvlTxt">LVL: <span id="expStat">0</span></h1>
+                    <h1 id="expTxt">EXP: <span id="lvlStat">0</span></h1>
+                </div>
+                <div id="calendarBox">
+                    <button id="calendarBtn">Open Calendar</button>
+                </div>
+            </div>
+            
+            
+        </article>
+        <footer>Dodo Games 2024</footer>
+        <div class="editModal" id="editModal">
+            <form class="modalContent">
+                <h1>Edytuj profil</h1>
+                <div class="formBox">
+                    <label>Nazwa:</label><input id="nameIn">
+                    <label>Klasa:</label><select id="classSel"></select>
+                    <label>Rasa:</label><select id="speciesSel"></select>
+                    <label>Avatar:</label><input type="file" id="fileInput" name="file" accept=".png,.jpg">
+                    <label>Kolor:</label><input id="colorIn" type="color">
+                    <label>Mocne strony:</label><textarea id="advantagesArea"></textarea>
+                    <label>Słabe strony:</label><textarea id="disadvantagesArea"></textarea>
+                    <span id="submitBtn">Wyślij</span>
+                </div>
+            </form>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
