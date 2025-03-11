@@ -22,26 +22,28 @@
             <article>
                 <button id="menuBtn">Dodaj</button>
                 <div id="page">
-                    <h1 id="playersHeadline">Kategorie</h1>
+                    <h1 id="playersHeadline">Categories</h1>
                     <table id="playersTab">
                         <tr>
                             <th>Id</th>
                             <th>Nazwa</th>
                             <th>Stat</th>
                             <th>EXP/h</th>
+                            <th>Aktywna</th>
                         </tr>
                         <tr>
                             <td><button class="actionBtn">1</button></td>
-                            <td>Muzyka</td>
-                            <td>CHA</td>
-                            <td>30</td>
+                            <td id="name1">Muzyka</td>
+                            <td id="stat1">CHA</td>
+                            <td id="exp1">30</td>
+                            <td id="active1">TAK</td>
                         </tr>
                     </table>
                     <div id="actionsBox">
                         <div class="actionsList">
                             <button class="actionOptionBtn editBtn">Edytuj</button>
                             <button class="actionOptionBtn" id="eraseBtn">Usuń</button>
-                            <button class="actionOptionBtn" id="profileBtn">Pokaż profil</button>
+                            <button class="actionOptionBtn" id="activateBtn">Zmień aktywność</button>
                         </div>
                     </div>
                 </div>
@@ -51,12 +53,16 @@
                 <form class="modalContent">
                     <h1>Edytuj gracza</h1>
                     <div class="formBox">
-                        <label>Nazwa:</label><input id="nameIn" disabled>
-                        <label>Login:</label><input id="loginIn">
-                        <label>Rola:</label><select>
-                            <option>Użytkownik</option>
-                            <option>Admin</option>
+                        <label>Nazwa:</label><input id="editNameIn">
+                        <label>Stat:</label><select id="editStatSel">
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
                         </select>
+                        <label>EXP/h:</label><input type="number" id="editExpIn">
                         <span id="submitEditBtn" class="submitBtn">Zapisz zmiany</span>
                     </div>
                 </form>
@@ -64,13 +70,18 @@
 
             <div class="editModal" id="addModal">
                 <form class="modalContent">
-                    <h1>Stwórz gracza</h1>
+                    <h1>Dodaj kategorię</h1>
                     <div class="formBox">
-                        <label>Login:</label><input id="loginCreateIn">
-                        <label>Rola:</label><select>
-                            <option>Użytkownik</option>
-                            <option>Admin</option>
+                        <label>Nazwa:</label><input id="addNameIn">
+                        <label>Stat:</label><select id="addStatSel">
+                            <option>STR</option>
+                            <option>DEX</option>
+                            <option>CON</option>
+                            <option>INT</option>
+                            <option>WIS</option>
+                            <option>CHA</option>
                         </select>
+                        <label>EXP/h:</label><input type="number" id="addExpIn">
                         <span id="submitAddBtn" class="submitBtn">Zapisz zmiany</span>
                     </div>
                 </form>
