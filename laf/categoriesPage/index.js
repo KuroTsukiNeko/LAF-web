@@ -41,11 +41,12 @@ eraseBtn.addEventListener("click", function (){
 // MENU: Adding
 addBtn.addEventListener("click", function (){
     document.getElementById("addModal").style.display = "block";
+    //console.log("siema");
 })
 
-sumbitAddBtn.addEventListener("click", function (){
+/*submitAddBtn.addEventListener("click", function (){
     document.getElementById("addModal").style.display = "none";
-})
+})*/
 
 // 2. ACTION: Editing
 editBtn.addEventListener("click", function (){
@@ -70,38 +71,42 @@ activateBtn.addEventListener("click", function (){
 })
 
 // ACTION LIST
-const actionBtns = document.getElementsByClassName("actionBtn");
-Array.from(actionBtns).forEach((element) => {
-    element.addEventListener("click", (event) => {
-        const popup = document.getElementById("actionsBox");
-        if (actionListOpened) {
-            popup.style.display = "none";
-            actionListOpened = false;
-        }
-        else {
-            currentId = element.innerHTML;
-            const x = event.clientX; // Współrzędna X kliknięcia
-            const y = event.clientY; // Współrzędna Y kliknięcia
-    
-            popup.style.left = `${x}px`;
-            popup.style.top = `${y}px`;
-            popup.style.display = "block"; // Wyświetlenie popupu    
-            actionListOpened = true;
-        }
-    });
-});
-
-
-const actionOptionBtns = document.getElementsByClassName("actionOptionBtn");
-Array.from(actionOptionBtns).forEach((element) => {
-    element.addEventListener("click", ()=> {
-        if (actionListOpened) {
+function ActionBtns() {
+    const actionBtns = document.getElementsByClassName("actionBtn");
+    Array.from(actionBtns).forEach((element) => {
+        element.addEventListener("click", (event) => {
             const popup = document.getElementById("actionsBox");
-            popup.style.display = "none";
-            actionListOpened = false;
-        }
+            if (actionListOpened) {
+                popup.style.display = "none";
+                actionListOpened = false;
+            }
+            else {
+                currentId = element.innerHTML;
+                document.getElementById("editIdIn").value = currentId;
+                document.getElementById("deleteIdIn").value = currentId;
+                const x = event.clientX; // Współrzędna X kliknięcia
+                const y = event.clientY; // Współrzędna Y kliknięcia
+        
+                popup.style.left = `${x}px`;
+                popup.style.top = `${y}px`;
+                popup.style.display = "block"; // Wyświetlenie popupu    
+                actionListOpened = true;
+            }
+        });
+    });
+
+    const actionOptionBtns = document.getElementsByClassName("actionOptionBtn");
+    Array.from(actionOptionBtns).forEach((element) => {
+        element.addEventListener("click", ()=> {
+            if (actionListOpened) {
+                const popup = document.getElementById("actionsBox");
+                popup.style.display = "none";
+                actionListOpened = false;
+            }
+        })
     })
-})
+
+}
 
 
 function fillEditFields(){
@@ -114,4 +119,35 @@ function sumbitEdit(){
     document.getElementById("name" + currentId).innerHTML = editNameIn.value;
     document.getElementById("stat" + currentId).innerHTML = editStatSel.value;
     document.getElementById("exp" + currentId).innerHTML = editExpIn.value;
+}
+
+// POBIERANIE DANYCH W JAVASCRIPT
+
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Dom content loaded");
+    fetch("get_categories.php") // Pobranie danych z serwera
+        .then(response => response.json()) // Parsowanie JSON
+        .then(data => loadTable(data)) // Wczytanie do tabeli
+        .catch(error => console.error("Błąd:", error));
+
+});
+
+function loadTable(players) {
+    const table = document.getElementById("playersTab");
+
+    players.forEach(player => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td><button class="actionBtn">${player.id}</button></td>
+            <td id="name${player.id}">${player.name}</td>
+            <td id="stat${player.id}">${player.stat}</td>
+            <td id="exp${player.id}">${player.exp}</td>
+            <td>${player.active}</td>
+        `;
+
+        table.appendChild(row);
+    });
+
+    ActionBtns();
 }
