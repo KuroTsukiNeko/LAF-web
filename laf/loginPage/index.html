@@ -30,16 +30,16 @@
                 <fieldset id="registerPage">
                     <legend id="registerHeader">Stwórz własną grę</legend>
                     <p class="hint">Jeśli jesteś nowym użytkownikiem</p>
-                    <form>
-                        <label>E-mail:</label><input type="email">
-                        <label>Nick:</label><input>
-                        <label>Hasło:</label><input type="password">
-                        <label>Powtórz hasło:</label><input type="password">
+                    <form id="registerForm">
+                        <label>E-mail:</label><input id="email" name="email" type="email">
+                        <label>Nick:</label><input id="nickname" name="nickname">
+                        <label>Hasło:</label><input id="password" name="password" type="password">
+                        <label>Powtórz hasło:</label><input id="confirmPassword" type="password">
                         <label class="hint">
                             Wyrażam zgodę na przetwarzanie moich danych osobowych przez administratora serwisu Life's A Fantasy w celu zarządzania kontem. Szczegóły: <a href="./politics.html">Polityka Prywatności</a>.
                         </label>
                         <br><input type="checkbox">
-                        <button id="registerBtn" class="formBtn">Utwórz konto</button>
+                        <button type="submit" id="registerBtn" class="formBtn">Utwórz konto</button>
                     </form>
                 </fieldset>
             </div>
