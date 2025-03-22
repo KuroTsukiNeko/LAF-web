@@ -18,7 +18,7 @@
             <div class="fieldsetContainer">
                 <fieldset id="loginPage">
                     <legend id="loginHeader">Wczytaj grę</legend>
-                    <p class="hint">Opcja dla zebranych członków drużyny i adminów</p>
+                    <p class="hint">Jeśli masz już konto</p>
                     <form>
                         <label>Login:</label><input>
                         <label>Hasło:</label><input type="password">
@@ -29,12 +29,16 @@
             <div class="fieldsetContainer">
                 <fieldset id="registerPage">
                     <legend id="registerHeader">Stwórz własną grę</legend>
-                    <p class="hint">Dla nowego użytkownika, który ma ambicje zostać adminem</p>
+                    <p class="hint">Jeśli jesteś nowym użytkownikiem</p>
                     <form>
-                        <label>E-mail:</label><input>
-                        <label>Login:</label><input type="email">
+                        <label>E-mail:</label><input type="email">
+                        <label>Nick:</label><input>
                         <label>Hasło:</label><input type="password">
                         <label>Powtórz hasło:</label><input type="password">
+                        <label class="hint">
+                            Wyrażam zgodę na przetwarzanie moich danych osobowych przez administratora serwisu Life's A Fantasy w celu zarządzania kontem. Szczegóły: <a href="./politics.html">Polityka Prywatności</a>.
+                        </label>
+                        <br><input type="checkbox">
                         <button id="registerBtn" class="formBtn">Utwórz konto</button>
                     </form>
                 </fieldset>

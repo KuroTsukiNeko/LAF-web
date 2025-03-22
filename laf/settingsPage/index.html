@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>LAF</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../commonStyles.css">
+    </head>
+    <body>
+            <nav>
+                <img id="logoImg">
+                <div id="pageList">
+                    <a id="navProfile" class="navItem">My profile</a>
+                    <a id="navCalendar" class="navItem">My calendar</a>
+                    <a id="navPlayers" class="navItem">Players</a>
+                    <a id="navQuests" class="navItem">Quests</a>
+                    <a id="navCategories" class="navItem">Categories</a>
+                </div>
+            </nav>
+            <article>
+                <div id="page">
+                    <h1 id="playersHeadline">Ustawienia</h1>
+                    <h4>Zmień nick</h4>
+                    <form>
+                        <label>Nick:</label><input>
+                        <button type="submit" class="formBtn">Zmień</button>
+                    </form>
+                    <h4>Zmień hasło:</h4>
+                    <form>
+                        <label>Obecne hasło:</label><input type="password">
+                        <label>Nowe hasło:</label><input type="password">
+                        <label>Powtórz nowe hasło:</label><input type="password">
+                        <button class="formBtn">Zmień</button>
+                    </form>
+                    
+                    <h4>Usuń konto</h4>
+                    <p>Jeśli zdecydujesz się usunąć konto, utracisz wszystkie swoje dane. Inni użytkownicy wciąż będą widzieli Twój pseudonim, ale nie będą mieli dostępu już do twojego profilu czy kalendarza. Tej akcji nie da się już cofnąć. Jeśli jesteś pewny/a swojej decyzji, wpisz swoje hasło i zatwierdź akcję.</p>
+                    <form>
+                        <label>Obecne hasło:</label><input type="password">
+                        <button class="formBtn">Usuń konto</button>
+                    </form>
+                </div>
+            </article>
+            <footer>Dodo Games 2024</footer>
+            
+            <div class="alertModal" id="eraseAlert">
+                <div class="alertContent">
+                    <h1 class="alertTitle">Jesteś pewny?</h1>
+                    <p class="alertSubtitle">Tej akcji nie da się cofnąć</p>
+                    <button class="alertCancel" id="cancelErase">Cancel</button>
+                    <button class="alertOK" id="confirmErase">OK</button>
+                </div>
+            </div>
+            <script src="index.js"></script>
+        </body>
+</html>

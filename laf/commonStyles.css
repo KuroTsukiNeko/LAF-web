@@ -189,3 +189,12 @@ td {
     font-style:italic;
     font-size:20px;
 }
+
+#filters {
+    width:100%;
+    padding:10px;
+    margin-bottom:20px;
+    background-color: rgb(225, 225, 225);
+    border-radius:5px;
+    box-shadow: 2px 2px 2px rgba(10, 10, 10, 0.2);
+}

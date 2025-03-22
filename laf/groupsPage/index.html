@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>LAF</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../commonStyles.css">
+    </head>
+    <body>
+            <nav>
+                <img id="logoImg">
+                <div id="pageList">
+                    <a id="navProfile" class="navItem">My profile</a>
+                    <a id="navCalendar" class="navItem">My calendar</a>
+                    <a id="navPlayers" class="navItem">Players</a>
+                    <a id="navQuests" class="navItem">Quests</a>
+                    <a id="navCategories" class="navItem">Categories</a>
+                </div>
+            </nav>
+            <article>
+                <button id="menuBtn">Dodaj</button>
+                <div id="page">
+                    <h1 id="playersHeadline">Grupy</h1>
+                    <form id="filters">
+                        <label>Nazwa:</label>
+                        <input>
+                        <label>Założyciel:</label>
+                        <input>
+                        <label>Opcje wyświetlania:</label>
+                        <select>
+                            <option>Wszystkie grupy</option>
+                            <option>Wyświetl tylko moje</option>
+                        </select>
+                    </form>
+                    <table id="playersTab">
+                        <tr>
+                            <th>Id</th>
+                            <th>Nazwa</th>
+                            <th>Opis</th>
+                            <th>Założyciel</th>
+                            <th>Rozmiar</th>
+                        </tr>
+                        <tr>
+                            <td><button class="actionBtn">1</button></td>
+                            <td>Grupa testowa</td>
+                            <td>To jest test.</td>
+                            <td>Dodo</td>
+                            <td>5</td>
+                        </tr>
+                    </table>
+                    <div id="actionsBox">
+                        <div class="actionsList">
+                            <button class="actionOptionBtn editBtn">Edytuj</button>
+                            <button class="actionOptionBtn" id="eraseBtn">Usuń</button>
+                            <button class="actionOptionBtn" id="profileBtn">Pokaż profil</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <footer>Dodo Games 2024</footer>
+            <div class="editModal" id="editModal">
+                <form class="modalContent">
+                    <h1>Edytuj gracza</h1>
+                    <div class="formBox">
+                        <label>Nazwa:</label><input id="nameIn" disabled>
+                        <label>Login:</label><input id="loginIn">
+                        <label>Rola:</label><select>
+                            <option>Użytkownik</option>
+                            <option>Admin</option>
+                        </select>
+                        <span id="submitEditBtn" class="submitBtn">Zapisz zmiany</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="editModal" id="addModal">
+                <form class="modalContent">
+                    <h1>Stwórz gracza</h1>
+                    <div class="formBox">
+                        <label>Login:</label><input id="loginCreateIn">
+                        <label>Rola:</label><select>
+                            <option>Użytkownik</option>
+                            <option>Admin</option>
+                        </select>
+                        <span id="submitAddBtn" class="submitBtn">Zapisz zmiany</span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="alertModal" id="eraseAlert">
+                <div class="alertContent">
+                    <h1 class="alertTitle">Jesteś pewny?</h1>
+                    <p class="alertSubtitle">Tej akcji nie da się cofnąć</p>
+                    <button class="alertCancel" id="cancelErase">Cancel</button>
+                    <button class="alertOK" id="confirmErase">OK</button>
+                </div>
+            </div>
+            <script src="index.js"></script>
+        </body>
+</html>
