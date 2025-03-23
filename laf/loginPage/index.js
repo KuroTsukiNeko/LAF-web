@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let formData = new FormData(this);
 
-        fetch("login.php", {
+        fetch("php/login.php", {
             method: "POST",
             body: formData
         })

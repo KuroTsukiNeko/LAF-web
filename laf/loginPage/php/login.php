@@ -1,5 +1,18 @@
 <?php
 require '../../db.php';
+    session_start();
+    function errorScreen($message) {
+        echo '<head> <title>LAF</title>
+        <link rel="stylesheet" href="../style.css">';
+        echo '<body>';
+        echo '<div id="page"><div class="fieldsetContainer">
+                <fieldset id="loginPage">';
+        echo '<h3>Błąd logowania!</h3><p>';
+        echo $message;
+        echo '</p><br><a href="../index.html">Powrót</a>';
+        echo '</fieldset></div></div>';
+        echo '</body>';
+    }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = trim($_POST['email']);
@@ -19,14 +32,14 @@ require '../../db.php';
                     header("Location: ../../profilePage/index.html");
                     exit();
                 } else {
-                    echo "Nieprawidłowe hasło.";
+                    errorScreen("Nieprawidłowe hasło.");
                 }
             } else {
-                echo "Nie znaleziono użytkownika.";
+                errorScreen("Użytkownik nie istnieje.");
             }
             $stmt->close();
         } else {
-            echo "Proszę wypełnić wszystkie pola.";
+           errorScreen("Proszę wypełnić wszystkie pola.");
         }
     }
     $conn->close();
