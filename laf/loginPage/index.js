@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const closePopupButton = document.getElementById("closePopup");
     const registerForm = document.getElementById("registerForm");
+    const loginForm = document.getElementById("loginForm")
     const popup = document.getElementById("popup");
     const errorMessage = document.getElementById("textPopup");
 
@@ -14,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
     closePopupButton.addEventListener("click", () => {
         popup.style.display = "none";
     });
+
+    // --- REGISTER  ---
 
     registerForm.addEventListener("submit", async function(event) {
         event.preventDefault(); // Zapobiegamy przeładowaniu strony
@@ -85,4 +88,41 @@ document.addEventListener("DOMContentLoaded", function() {
             return false; // W razie błędu traktujemy, jakby e-mail był wolny (ale można to inaczej obsłużyć)
         }
     }
+
+
+    loginForm.addEventListener("submit", function(e) {
+
+        //e.preventDefault();
+        let password = document.getElementById("passwordLo").value;
+        let email = document.getElementById("emailLo").value;
+
+        errorMessage.innerHTML = "";
+
+        // EMAIL
+        if (email === "" || password === "") {
+            validate("Uzupełnij wszystkie pola");
+            return;
+        }
+
+        let formData = new FormData(this);
+
+        fetch("login.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                window.location.href = data.redirect; // Przekierowanie na stronę profilu
+            } else {
+                alert(data.message); // Wyświetlenie komunikatu o błędzie
+            }
+        })
+        .catch(function(error) {
+            validate("Nieprawidłowy e-mail lub hasło");
+            console.log(error);
+        });
+
+    });
+    
 });

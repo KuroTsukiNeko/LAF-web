@@ -19,10 +19,10 @@
                 <fieldset id="loginPage">
                     <legend id="loginHeader">Wczytaj grę</legend>
                     <p class="hint">Jeśli masz już konto</p>
-                    <form>
-                        <label>Login:</label><input>
-                        <label>Hasło:</label><input type="password">
-                        <button id="loginBtn" class="formBtn">Zaloguj się</button>
+                    <form id="loginForm" method="POST" action="php/login.php">
+                        <label>Login:</label><input name="email" id="emailLo">
+                        <label>Hasło:</label><input type="password" name="password" id="passwordLo">
+                        <button type="submit" id="loginBtn" class="formBtn">Zaloguj się</button>
                     </form>
                 </fieldset>
             </div>
