@@ -20,26 +20,26 @@
                 </div>
             </nav>
             <article>
-                <div id="page">
+                <div id="page" style="max-width:500px;">
                     <h1 id="playersHeadline">Ustawienia</h1>
                     <h4>Zmień nick</h4>
-                    <form>
-                        <label>Nick:</label><input>
-                        <button type="submit" class="formBtn">Zmień</button>
+                    <form class="formBox">
+                        <label>Nowa nazwa:</label><input id="nickIn">
+                        <span id="changeNickBtn" class="submitBtn">Zmień</span>
                     </form>
                     <h4>Zmień hasło:</h4>
-                    <form>
-                        <label>Obecne hasło:</label><input type="password">
-                        <label>Nowe hasło:</label><input type="password">
-                        <label>Powtórz nowe hasło:</label><input type="password">
-                        <button class="formBtn">Zmień</button>
+                    <form class="formBox">
+                        <label>Obecne hasło:</label><input id="currentPassIn" type="password">
+                        <label>Nowe hasło:</label><input id="newPassIn" type="password">
+                        <label>Powtórz nowe hasło:</label><input id="newPass2In" type="password">
+                        <span id="changePasswordBtn" class="submitBtn">Zmień</span>
                     </form>
                     
                     <h4>Usuń konto</h4>
                     <p>Jeśli zdecydujesz się usunąć konto, utracisz wszystkie swoje dane. Inni użytkownicy wciąż będą widzieli Twój pseudonim, ale nie będą mieli dostępu już do twojego profilu czy kalendarza. Tej akcji nie da się już cofnąć. Jeśli jesteś pewny/a swojej decyzji, wpisz swoje hasło i zatwierdź akcję.</p>
-                    <form>
-                        <label>Obecne hasło:</label><input type="password">
-                        <button class="formBtn">Usuń konto</button>
+                    <form class="formBox">
+                        <label>Obecne hasło:</label><input id="removeAccountIn" type="password">
+                        <span id="removeAccountBtn" class="submitBtn">Usuń konto</span>
                     </form>
                 </div>
             </article>

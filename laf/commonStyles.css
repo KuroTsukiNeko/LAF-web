@@ -197,4 +197,33 @@ td {
     background-color: rgb(225, 225, 225);
     border-radius:5px;
     box-shadow: 2px 2px 2px rgba(10, 10, 10, 0.2);
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.filter {
+    margin:2px;
+}
+
+.filterBtn {
+    background-color: #333;
+    padding: 8px;
+    color:white;
+    border:solid 2px white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.filterBtn:hover {
+    background-color: gray;
+    color:rgb(216, 216, 216);
+}
+
+.error-highlight {
+    background-color:rgb(247, 209, 209);
+}
+
+.success-highlight {
+    background-color: rgb(210, 246, 210);
 }
