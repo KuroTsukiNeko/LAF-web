@@ -48,14 +48,12 @@
                             <th>Nazwa</th>
                             <th>Opis</th>
                             <th>Założyciel</th>
-                            <th>Rozmiar</th>
                         </tr>
                         <tr>
                             <td><button class="actionBtn">1</button></td>
                             <td>Grupa testowa</td>
                             <td>To jest test.</td>
                             <td>Dodo</td>
-                            <td>5</td>
                         </tr>
                     </table>
                     <div id="actionsBox">
@@ -72,9 +70,9 @@
                 <form class="modalContent">
                     <h1>Edytuj grupę</h1>
                     <div class="formBox">
+                        <label>Kod dołączenia:</label><input name="code" disabled>
                         <label>Nazwa:</label><input id="nameEditIn" name="name">
                         <label>Opis:</label><input id="descEditIn" name="description">
-                        <label>Rozmiar:</label><input type="number" id="sizeEditIn" name="size">
                         <button type="submit" id="submitEditBtn" class="submitBtn">Zapisz zmiany</button>
                     </div>
                 </form>
@@ -84,9 +82,9 @@
                 <form class="modalContent">
                     <h1>Stwórz grupę</h1>
                     <div class="formBox">
+                        <label>Kod dołączenia:</label><input id="codeIn" name="code" disabled>
                         <label>Nazwa:</label><input id="nameIn" name="name">
                         <label>Opis:</label><input id="descIn" name="description">
-                        <label>Rozmiar:</label><input type="number" id="sizeIn" name="size">
                         <button type="submit" id="submitAddBtn" class="submitBtn">Zapisz zmiany</button>
                     </div>
                 </form>

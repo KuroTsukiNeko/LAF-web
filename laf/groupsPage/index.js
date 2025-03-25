@@ -42,6 +42,7 @@ eraseBtn.addEventListener("click", function (){
 // MENU: Adding
 addBtn.addEventListener("click", function (){
     document.getElementById("addModal").style.display = "block";
+    codeIn.value = generateGroupCode();
     //console.log("siema");
 })
 
@@ -105,3 +106,9 @@ function ActionBtns() {
 document.addEventListener("DOMContentLoaded", function() {
     ActionBtns();
 });
+
+
+// Generating a random code
+function generateGroupCode() {
+    return (Math.random().toString(36).substr(2, 8).toUpperCase()); 
+}
