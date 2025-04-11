@@ -29,18 +29,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $conn->close();
         exit();
     }
+    $stmt->close();
 
+    
     // Wstawienie użytkownika do bazy
-    $stmt = $conn->prepare("INSERT INTO accounts (nickname, password, email) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $nickname, $hashedPassword, $email);
+    $stmt = $conn->prepare("INSERT INTO accounts (password, email) VALUES (?, ?)");
+    $stmt->bind_param("ss", $hashedPassword, $email);
+
 
     if ($stmt->execute()) {
-        echo json_encode(["success" => "Rejestracja zakończona sukcesem!"]);
-    } else {
-        echo json_encode(["error" => "Błąd: " . $stmt->error]);
-    }
+            $id_login = $stmt->insert_id; // Pobranie ID nowo utworzonego użytkownika
+            $stmt->close();
 
-    $stmt->close();
-    $conn->close();
-}
+            // Wstawienie użytkownika do tabeli players
+            $stmt = $conn->prepare("INSERT INTO players (account_id, nickname, species, class, avatar, color, advantages, disadvantages, stats, exp, completed_quest) VALUES (?, ?, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)");
+            $stmt->bind_param("is", $id_login, $nickname);
+            
+            if ($stmt->execute()) {
+                echo json_encode(["success" => "Rejestracja zakończona sukcesem!"]);
+            } else {
+                echo json_encode(["error" => "Błąd przy tworzeniu profilu gracza: " . $stmt->error]);
+            }
+            $stmt->close();
+        } else {
+            echo json_encode(["error" => "Błąd: " . $stmt->error]);
+        }
+
+        $conn->close();
+    }
 ?>

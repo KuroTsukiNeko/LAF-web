@@ -3,6 +3,8 @@ editBtn = document.getElementById("menuBtn")
 calendarBtn = document.getElementById("calendarBtn")
 avatarImg = document.getElementById("profileImg")
 
+placeholderTxt = "[brak]";
+
 classes = [
     { name: "Wojownik" },
     { name: "Mag" },
@@ -19,10 +21,38 @@ playerData = {
     name: "",
     species: "",
     class: "",
-    charColor: "#ffffff",
+    charColor: "#eeeeee",
     advantages: "",
     disadvantages: ""
 }
+
+
+// ZCZYTANIE DANYCH DLA UŻYTKOWIKA
+document.addEventListener("DOMContentLoaded", function() {
+
+    fetch('./php/update_profile.php')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Błąd sieci: ' + response.status);
+        }
+        return response.json();
+    }).then(data => {
+        if (data.error) {
+        console.error('Błąd z PHP:', data.error);
+        } else {
+        console.log('Dane gracza:', data);
+        // możesz teraz np. wyświetlić dane na stronie
+        playerData.name = data.nickname;
+        playerData.species = data.species;
+        playerData.class = data.class;
+        playerData.advantages = data.advantages;
+        playerData.disadvantages = data.disadvantages;
+        updatePlayerData();
+        }
+    }).catch(error => {
+        console.error('Błąd podczas fetch:', error);
+    });
+});
 
 function updateAvatar(){
     //const file = fileInput.files[0];
@@ -32,12 +62,22 @@ function updateAvatar(){
 }
 
 function updatePlayerData(){
-    document.getElementById("playerName").innerHTML = playerData.name;
-    document.getElementById("playerClass").innerHTML = playerData.class;
-    document.getElementById("playerSpecies").innerHTML = playerData.species;
-    document.getElementById("page").style.backgroundColor = playerData.charColor;
-    document.getElementById("playerAdv").innerHTML = playerData.advantages;
-    document.getElementById("playerDis").innerHTML = playerData.disadvantages;
+    updatePlayerDataHelp("playerName", playerData.name);
+    updatePlayerDataHelp("playerSpecies", playerData.species);
+    updatePlayerDataHelp("playerAdv", playerData.advantages);
+    updatePlayerDataHelp("playerDis", playerData.disadvantages);
+    
+    if (playerData.charColor != null)
+        document.getElementById("page").style.backgroundColor = playerData.charColor;
+    else
+    document.getElementById("page").style.backgroundColor = "#eeeeee";
+}
+
+function updatePlayerDataHelp(id, value){
+    if (value == null)
+        document.getElementById(id).innerHTML = placeholderTxt;
+    else
+        document.getElementById(id).innerHTML = value;
 }
 
 // Funkcja dostosowująca kolor nagłówka do tła tak, żeby był widoczny
